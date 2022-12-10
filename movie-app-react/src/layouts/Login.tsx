@@ -1,11 +1,10 @@
-
+import LoginForm from "../components/LoginForm/LoginForm"
 const Login = () => {
 
     return (
         <>
-
-            <p>Login</p>
-
+            <h1>MyWatchList</h1>
+            <LoginForm></LoginForm>
         </>)
 
 
