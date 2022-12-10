@@ -1,14 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.scss'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Login from './layouts/Login';
+import Movie from './layouts/Movie';
+import Movies from './layouts/Movies';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login></Login>,
+  },
+  {
+    path: "/login",
+    element: <Login></Login>
+  },
+  {
+    path: "/movies",
+    element: <Movies></Movies>
+  },
+  {
+    path: "/movies/:id",
+    element: <Movie></Movie>
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      
-    </>
+    <RouterProvider router={router} />
   )
 }
 
