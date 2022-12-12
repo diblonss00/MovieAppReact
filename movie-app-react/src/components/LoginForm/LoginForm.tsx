@@ -2,44 +2,59 @@ import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./LoginForm.scss"
 
-const LoginForm = () => {
-    const [users, setUsers] = useState([]);
+interface User {
+    email: string;
+    password: string;
+}
+interface LoginFormProps {
+    user: User
+}
+
+const LoginForm = (props: LoginFormProps) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigation = useNavigate()
 
-    const getLogin = async () => {
+    const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value)
+    }
 
-        const response = await fetch(
-            "https://63944f1f86829c49e819008c.mockapi.io/api/users"
-        );
-        const results = (await response.json());
-        console.log("email", results[0].email)
-        console.log("email", results[0].password)
+    const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value)
+    }
 
-        setUsers(results)
+    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
 
-        if (results) {
+
+        const login = {
+            email: email,
+            password: password
+        }
+
+        if (login.email === props.user.email && login.password === props.user.password) {
+
             navigation("/movies")
+
+        }
+        else {
+            alert("errore")
         }
 
     }
 
 
-    useEffect(() => {
-        getLogin()
-    }, [])
-
-
 
     return (
         <>
-            <form action="" className="LoginFormContainer">
+            <form action="" className={0 == 0 ? "LoginFormContainer" : "cicco"} onSubmit={submitHandler}>
 
-                <input type="email" name="" id="" />
+                <input type="email" name="" id="" value={email} onChange={emailChangeHandler} />
 
-                <input type="password" name="" id="" />
+                <input type="password" name="" id="" value={password} onChange={passwordChangeHandler} />
 
 
-                <button onClick={() => getLogin()}>Accedi</button>
+                <button>Accedi</button>
 
             </form>
         </>
