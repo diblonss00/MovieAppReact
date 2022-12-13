@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import MovieCard, { Result } from "../components/MovieCard/MovieCard"
 import Navbar from "../components/Navbar/Navbar";
 import SideBarMovies from "../components/SideBarMovies/SideBarMovies"
+import WishList from "../components/WishList/WishList";
 
 
 const Movies = () => {
@@ -54,13 +56,17 @@ const Movies = () => {
                     <h3> New Releases</h3>
 
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        {movies.map((item) => (<MovieCard item={item}></MovieCard>))}
+                        {movies.map((item) => (<Link to={`/movies/${item.id}`}><MovieCard item={item}></MovieCard></Link>))}
                     </div>
+
+                    <WishList></WishList>
 
                 </div>
 
 
             </div>
+
+
 
 
 

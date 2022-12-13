@@ -1,5 +1,6 @@
 import "./MovieCard.scss"
 import Button from "../Button/Button"
+import { Link, useNavigate } from "react-router-dom"
 export interface Result {
     title: string
     releaseDate: Date
@@ -32,7 +33,7 @@ const MovieCard = (props: { item: Result }) => {
 
                     <div className="container">
                         <h4>{props.item.title}</h4>
-                        <p>{props.item.director}</p>
+                        <p style={{ color: 'white' }}>{props.item.director}</p>
                     </div>
 
                     <div>

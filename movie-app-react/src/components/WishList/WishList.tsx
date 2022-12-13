@@ -4,7 +4,10 @@ const WishList = () => {
 
     return (
         <>
-            <h2>WatchList</h2>
+            <div>
+                <h2>WatchList</h2>
+            </div>
+
 
 
 
