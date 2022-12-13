@@ -13,7 +13,7 @@ const Login = () => {
         );
 
         setUsers(await response.json());
-        //console.log("email", results)
+
 
 
     }
@@ -26,8 +26,10 @@ const Login = () => {
 
     return (
         <>
-            <h1>MyWatchList</h1>
+
             <LoginForm user={users[0]}></LoginForm>
+
+
         </>)
 
 

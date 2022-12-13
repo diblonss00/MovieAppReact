@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { RouteObject } from "react-router-dom";
-import MovieCard, { Result, RootObject } from "../components/MovieCard/MovieCard"
+import MovieCard, { Result } from "../components/MovieCard/MovieCard"
 import Navbar from "../components/Navbar/Navbar";
 import SideBarMovies from "../components/SideBarMovies/SideBarMovies"
 
 
 const Movies = () => {
     const [movies, setMovies] = useState<Result[]>([]);
+    const [users, setUsers] = useState([]);
 
     const getMovies = async () => {
 
@@ -20,8 +20,23 @@ const Movies = () => {
         setMovies(results)
     }
 
+    const getUsers = async () => {
+
+        const response = await fetch(
+            "https://63944f1f86829c49e819008c.mockapi.io/api/users"
+        );
+
+        const results = (await response.json());
+        console.log("image", results)
+
+        setUsers(results)
+    }
+
+
+
     useEffect(() => {
 
+        getUsers()
         getMovies()
     }, [])
 
@@ -29,12 +44,22 @@ const Movies = () => {
         <>
             <Navbar></Navbar>
 
-            <div className="franco">
+            <div style={{ display: "flex", flexDirection: "row" }}>
+
                 <div>
-                    {movies.map((item) => (<MovieCard item={item} />))}
+                    {users.map((item) => (<SideBarMovies user={item} />))}
                 </div>
 
-                <SideBarMovies></SideBarMovies>
+                <div>
+                    <h3> New Releases</h3>
+
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        {movies.map((item) => (<MovieCard item={item}></MovieCard>))}
+                    </div>
+
+                </div>
+
+
             </div>
 
 

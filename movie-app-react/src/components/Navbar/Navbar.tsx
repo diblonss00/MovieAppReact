@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="justify-center mb-30">
-                <p>MyWatchList</p>
+                <h1 style={{ fontWeight: 'bold' }}>MyWatchList</h1>
             </nav>
 
         </>

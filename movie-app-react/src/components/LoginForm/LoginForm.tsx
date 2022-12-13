@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./LoginForm.scss"
 
-interface User {
+export interface User {
     email: string;
     password: string;
+    image: string;
 }
-interface LoginFormProps {
+
+interface LoginProporm {
     user: User
 }
 
-const LoginForm = (props: LoginFormProps) => {
+
+
+const LoginForm = (props: LoginProporm) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigation = useNavigate()
@@ -47,16 +51,20 @@ const LoginForm = (props: LoginFormProps) => {
 
     return (
         <>
-            <form action="" className={0 == 0 ? "LoginFormContainer" : "cicco"} onSubmit={submitHandler}>
+            <div className="container">
+                <form action="" onSubmit={submitHandler} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+                    <h1> MyWatchList</h1>
 
-                <input type="email" name="" id="" value={email} onChange={emailChangeHandler} />
+                    <input type="email" name="" id="" value={email} onChange={emailChangeHandler} style={{ marginBottom: "10px" }} />
 
-                <input type="password" name="" id="" value={password} onChange={passwordChangeHandler} />
+                    <input type="password" name="" id="" value={password} onChange={passwordChangeHandler} style={{ marginBottom: "10px" }} />
 
 
-                <button>Accedi</button>
+                    <button>Accedi</button>
 
-            </form>
+                </form>
+            </div>
+
         </>
     )
 }
