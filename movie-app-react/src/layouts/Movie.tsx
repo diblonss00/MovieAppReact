@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import MovieCard, { Result } from "../components/MovieCard/MovieCard"
+import Navbar from "../components/Navbar/Navbar";
+import SingleMovie from "../components/SingleMovie/SingleMovie";
 
 
 const Movie = () => {
@@ -16,9 +18,9 @@ const Movie = () => {
         const results = (await response.json());
         console.log("title", results)
 
-        let gay: [any] = [results]
+        let arrayMovie: [any] = [results]
 
-        setMovie(gay)
+        setMovie(arrayMovie)
 
 
 
@@ -38,19 +40,46 @@ const Movie = () => {
     return (
 
         <>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
 
-                <div>{movie.map((item) => (<MovieCard item={item}></MovieCard>
+            <Navbar></Navbar>
 
+            <div>
 
+                {movie.map((item) => (<SingleMovie item={item}></SingleMovie>))}
 
-
-
-
-
-                ))}</div>
 
             </div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px' }}>
+                <button>Aggiungi alla WatchList</button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '10px' }}>
+
+                <h1>{movie.map((item) => (item.title))} ({movie.map((item) => (item.releaseDate))}) </h1>
+                <p style={{ color: 'white' }}>{movie.map((item) => (item.description))}</p>
+
+                <div>
+                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <h3>Director:</h3>
+                        <p style={{ color: 'white', marginLeft: '5px' }}>{movie.map((item) => (item.director))}</p>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <h3>Writers:</h3>
+                        <p style={{ color: 'white', marginLeft: '5px' }}>{movie.map((item) => (item.writers))}</p>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                        <h3>Stars:</h3>
+                        <p style={{ color: 'white', marginLeft: '5px' }}>{movie.map((item) => (item.stars))}</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
 
 
 

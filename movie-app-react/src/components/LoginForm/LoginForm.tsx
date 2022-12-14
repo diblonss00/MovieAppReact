@@ -42,7 +42,7 @@ const LoginForm = (props: LoginProporm) => {
 
         }
         else {
-            alert("errore")
+            alert("credenziali errate!")
         }
 
     }
@@ -51,17 +51,18 @@ const LoginForm = (props: LoginProporm) => {
 
     return (
         <>
-            <div className="container">
+            <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <form action="" onSubmit={submitHandler} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                     <h1> MyWatchList</h1>
 
-                    <input type="email" name="" id="" value={email} onChange={emailChangeHandler} style={{ marginBottom: "10px" }} />
+                    <input className="inputForm" type="email" placeholder="mario.rossi@gmail.com" id="" value={email} onChange={emailChangeHandler} style={{ marginBottom: "10px" }} />
 
-                    <input type="password" name="" id="" value={password} onChange={passwordChangeHandler} style={{ marginBottom: "10px" }} />
+                    <input className="inputForm" type="password" name="" placeholder="Your password" id="" value={password} onChange={passwordChangeHandler} style={{ marginBottom: "10px" }} />
 
 
                     <button>Accedi</button>
 
+                    <p style={{ color: 'white' }}>Non hai un account? Registrati qui</p>
                 </form>
             </div>
 

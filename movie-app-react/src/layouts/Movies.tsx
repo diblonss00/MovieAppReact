@@ -56,7 +56,8 @@ const Movies = () => {
                     <h3> New Releases</h3>
 
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        {movies.map((item) => (<Link to={`/movies/${item.id}`}><MovieCard item={item}></MovieCard></Link>))}
+                        {movies.map((item) => (<MovieCard item={item}></MovieCard>))}
+
                     </div>
 
                     <WishList></WishList>

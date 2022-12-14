@@ -5,7 +5,7 @@ const WishList = () => {
     return (
         <>
             <div>
-                <h2>WatchList</h2>
+                <h3>WishList</h3>
             </div>
 
 

@@ -7,6 +7,7 @@ export interface Result {
     director: string
     writers: [],
     stars: [],
+    video: string,
     image: string
     movie: string
     rating: number
@@ -23,32 +24,32 @@ const MovieCard = (props: { item: Result }) => {
         <>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-            <button style={{ marginRight: "20px" }}>
-                <div className="card">
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Link to={`/movies/${props.item.id}`}>
+                    <div className="card" style={{ marginRight: "20px" }}>
 
-                    <div>
-                        <img src={props.item.image} alt="Avatar" width={"100%"} />
-                    </div>
+                        <div>
+                            <img src={props.item.image} alt="Avatar" width={"100%"} />
+                        </div>
 
 
-                    <div className="container">
-                        <h4>{props.item.title}</h4>
-                        <p style={{ color: 'white' }}>{props.item.director}</p>
-                    </div>
+                        <div className="container">
+                            <h4>{props.item.title}</h4>
+                            <p style={{ color: 'white' }}>{props.item.director}</p>
+                        </div>
 
-                    <div>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                    </div>
+                        <div>
+                            <span className="fa fa-star checked"></span>
+                            <span className="fa fa-star checked"></span>
+                            <span className="fa fa-star checked"></span>
+                            <span className="fa fa-star"></span>
+                            <span className="fa fa-star"></span>
+                        </div>
 
-                    <Button isFavorite={true}></Button>
-                </div>
 
-            </button>
-
+                    </div></Link>
+                <button style={{ marginTop: '10px' }}>Aggiungi alla WatchList</button>
+            </div>
 
 
 
