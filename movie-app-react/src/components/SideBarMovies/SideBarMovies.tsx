@@ -14,9 +14,9 @@ const SideBarMovies = (props: MoviesProp) => {
         <>
             <div className="sideBar">
 
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "column" }}>
-                    <img src={props.user.image} alt="" style={{ width: "50%", borderRadius: "30px", marginTop: '40px' }} />
-                    <p style={{ textAlign: "center", fontWeight: "bold" }}> Benvenuto {props.user.name}!</p>
+                <div className="flexColumnCenter">
+                    <img src={props.user.image} alt="" className="profile" />
+                    <p className="movieCardText"> Benvenuto {props.user.name}!</p>
                 </div>
 
             </div>

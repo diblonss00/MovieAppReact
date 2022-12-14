@@ -9,11 +9,10 @@ const Movie = () => {
     const [movie, setMovie] = useState<Result[]>([])
     const { id } = useParams();
 
+    //api film
     const getMovie = async () => {
 
-        const response = await fetch(
-            `https://63944f1f86829c49e819008c.mockapi.io/api/movies/${id}`
-        );
+        const response = await fetch(`https://63944f1f86829c49e819008c.mockapi.io/api/movies/${id}`);
 
         const results = (await response.json());
         console.log("title", results)
@@ -22,15 +21,8 @@ const Movie = () => {
 
         setMovie(arrayMovie)
 
-
-
-        console.log("olloo", movie)
+        //console.log("film", movie)
     }
-
-
-
-
-
 
     useEffect(() => {
         getMovie()
@@ -56,7 +48,7 @@ const Movie = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '10px' }}>
 
-                <h1>{movie.map((item) => (item.title))} ({movie.map((item) => (item.releaseDate))}) </h1>
+                <h1>{movie.map((item) => (item.title))} ({movie.map((item) => (item.releaseDate))})</h1>
                 <p style={{ color: 'white' }}>{movie.map((item) => (item.description))}</p>
 
                 <div>

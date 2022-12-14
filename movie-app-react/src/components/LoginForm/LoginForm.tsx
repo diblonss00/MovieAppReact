@@ -17,33 +17,26 @@ interface LoginProporm {
 const LoginForm = (props: LoginProporm) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigation = useNavigate()
+    const navigation = useNavigate() //cambio pagina
 
-    const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value)
-    }
+    //prendo i dati del form
+    const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => { setEmail(e.target.value) }
 
-    const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value)
-    }
+    //dati singolo input password
+    const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => { setPassword(e.target.value) }
 
+    //dati singolo input email
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
 
         const login = {
             email: email,
             password: password
         }
 
-        if (login.email === props.user.email && login.password === props.user.password) {
+        if (login.email === props.user.email && login.password === props.user.password) { navigation("/movies") }
 
-            navigation("/movies")
-
-        }
-        else {
-            alert("credenziali errate!")
-        }
+        else { alert("credenziali errate!") }
 
     }
 
@@ -51,8 +44,8 @@ const LoginForm = (props: LoginProporm) => {
 
     return (
         <>
-            <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <form action="" onSubmit={submitHandler} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+            <div className="container formCenter">
+                <form action="" onSubmit={submitHandler} className="flexColumnCenter">
                     <h1> MyWatchList</h1>
 
                     <input className="inputForm" type="email" placeholder="mario.rossi@gmail.com" id="" value={email} onChange={emailChangeHandler} style={{ marginBottom: "10px" }} />
@@ -62,7 +55,7 @@ const LoginForm = (props: LoginProporm) => {
 
                     <button>Accedi</button>
 
-                    <p style={{ color: 'white' }}>Non hai un account? Registrati qui</p>
+                    <p className="p-white">Non hai un account? Registrati qui</p>
                 </form>
             </div>
 

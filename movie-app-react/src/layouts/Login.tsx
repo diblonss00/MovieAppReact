@@ -6,19 +6,15 @@ const Login = () => {
 
     const [users, setUsers] = useState([]);
 
+    //api login
     const getLogin = async () => {
 
-        const response = await fetch(
-            "https://63944f1f86829c49e819008c.mockapi.io/api/users"
-        );
+        const response = await fetch("https://63944f1f86829c49e819008c.mockapi.io/api/users");
 
         setUsers(await response.json());
-
-
-
     }
 
-    console.log("email", users)
+    //console.log("email", users)
 
     useEffect(() => {
         getLogin()
@@ -26,10 +22,7 @@ const Login = () => {
 
     return (
         <>
-
             <LoginForm user={users[0]}></LoginForm>
-
-
         </>)
 
 

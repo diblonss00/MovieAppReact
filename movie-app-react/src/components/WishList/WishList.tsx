@@ -1,17 +1,17 @@
-import MovieCard from "../MovieCard/MovieCard"
-
-const WishList = () => {
-
-    return (
-        <>
-            <div>
-                <h3>WishList</h3>
-            </div>
+import { useEffect, useState } from "react"
+import MovieCard, { Result } from "../MovieCard/MovieCard"
 
 
+const WishList = (props: { item: Result }) => {
+    const [favouriteMovie, setFavouriteMovie] = useState([])
+
+    useEffect(() => {
+        setFavouriteMovie(JSON.parse(localStorage.getItem('favouriteMovies')!))
+
+    }, [])
 
 
-        </>)
+    return (<></>)
 
 }
 

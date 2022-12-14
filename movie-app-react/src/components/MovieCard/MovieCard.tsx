@@ -1,6 +1,7 @@
 import "./MovieCard.scss"
 import Button from "../Button/Button"
 import { Link, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
 export interface Result {
     title: string
     releaseDate: Date
@@ -15,7 +16,6 @@ export interface Result {
     duration: number
     id: number
 
-
 }
 
 
@@ -24,37 +24,32 @@ const MovieCard = (props: { item: Result }) => {
         <>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div className="flexColumnCenterCard">
                 <Link to={`/movies/${props.item.id}`}>
-                    <div className="card" style={{ marginRight: "20px" }}>
+                    <div className="card"  >
 
                         <div>
                             <img src={props.item.image} alt="Avatar" width={"100%"} />
                         </div>
 
 
-                        <div className="container">
-                            <h4>{props.item.title}</h4>
-                            <p style={{ color: 'white' }}>{props.item.director}</p>
+                        <div className="container flexColumnCenter">
+                            <h2>{props.item.title}</h2>
+                            <h4>{props.item.director}</h4>
+
+
+                            <div>
+                                <span className="fa fa-star checked"></span>
+                                <span className="fa fa-star checked"></span>
+                                <span className="fa fa-star checked"></span>
+                                <span className="fa fa-star"></span>
+                                <span className="fa fa-star"></span>
+                            </div>
                         </div>
-
-                        <div>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star"></span>
-                            <span className="fa fa-star"></span>
-                        </div>
-
-
-                    </div></Link>
-                <Button></Button>
+                    </div>
+                </Link>
+                <Button id={props.item.id}></Button>
             </div>
-
-
-
-
-
         </>
     )
 

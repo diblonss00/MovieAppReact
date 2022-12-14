@@ -4,39 +4,35 @@
     height: 100vh;
 }
 
-.buttonImage {
-    background: rgb(53, 50, 48);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-image: url("https://cdn-icons-png.flaticon.com/128/119/119591.png");
-}
-
-.justify-center {
+.flexColumnCenter {
     display: flex;
     justify-content: center;
-}
-
-.justify-beetween {
-    display: flex;
-    justify-content: space-between;
+    align-items: center;
+    flex-direction: column
 }
 
 p {
     color: black;
+
 }
 
 nav {
     background-color: rgba(128, 128, 128, 0.333);
 }
 
-.ml-10 {
-    margin-left: 10%;
+.profile {
+    width: 50%;
+    border-radius: 30px;
+
+    margin-top: 40px
 }
 
-.mb-25 {
-    margin-bottom: 25px;
+.movieCardText {
+    text-align: center;
+    font-weight: bold;
 }
+
+
 
 /* input {
     margin-left: 115%;

@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import MovieCard, { Result } from "../components/MovieCard/MovieCard"
 import Navbar from "../components/Navbar/Navbar";
 import SideBarMovies from "../components/SideBarMovies/SideBarMovies"
-import WishList from "../components/WishList/WishList";
+
 
 
 const Movies = () => {
     const [movies, setMovies] = useState<Result[]>([]);
     const [users, setUsers] = useState([]);
 
+    //api film
     const getMovies = async () => {
 
-        const response = await fetch(
-            "https://63944f1f86829c49e819008c.mockapi.io/api/movies"
-        );
+        const response = await fetch("https://63944f1f86829c49e819008c.mockapi.io/api/movies");
 
         const results = (await response.json());
         console.log("title", results)
@@ -22,11 +21,10 @@ const Movies = () => {
         setMovies(results)
     }
 
+    //api che mi da l'info dell'utente loggato
     const getUsers = async () => {
 
-        const response = await fetch(
-            "https://63944f1f86829c49e819008c.mockapi.io/api/users"
-        );
+        const response = await fetch("https://63944f1f86829c49e819008c.mockapi.io/api/users");
 
         const results = (await response.json());
         console.log("image", results)
@@ -37,7 +35,6 @@ const Movies = () => {
 
 
     useEffect(() => {
-
         getUsers()
         getMovies()
     }, [])
@@ -62,21 +59,11 @@ const Movies = () => {
 
                     <div style={{ marginTop: '50px' }}>
                         <h3>WishList</h3>
-                        {movies.map((item) => (<WishList ></WishList>))}
                     </div>
-
-
 
                 </div>
 
-
             </div>
-
-
-
-
-
-
 
         </>)
 
