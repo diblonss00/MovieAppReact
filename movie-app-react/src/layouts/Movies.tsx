@@ -60,7 +60,12 @@ const Movies = () => {
 
                     </div>
 
-                    <WishList></WishList>
+                    <div style={{ marginTop: '50px' }}>
+                        <h3>WishList</h3>
+                        {movies.map((item) => (<WishList ></WishList>))}
+                    </div>
+
+
 
                 </div>
 

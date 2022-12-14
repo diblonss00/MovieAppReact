@@ -1,9 +1,12 @@
-const Button = (props: { isFavorite: boolean }) => {
+import { useEffect, useState } from "react"
+
+const Button = () => {
+
 
     return (
         <>
 
-            <button >{props.isFavorite}Aggiungi</button>
+            <button style={{ marginTop: '25px' }}>Aggiungi alla WatchList</button>
 
 
         </>

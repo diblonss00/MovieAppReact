@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import MovieCard, { Result } from "../components/MovieCard/MovieCard"
+import { Result } from "../components/MovieCard/MovieCard";
 import Navbar from "../components/Navbar/Navbar";
 import SingleMovie from "../components/SingleMovie/SingleMovie";
 

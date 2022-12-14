@@ -48,7 +48,7 @@ const MovieCard = (props: { item: Result }) => {
 
 
                     </div></Link>
-                <button style={{ marginTop: '10px' }}>Aggiungi alla WatchList</button>
+                <Button></Button>
             </div>
 
 
